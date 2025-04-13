@@ -1,3 +1,19 @@
+## 2.0.0
+
+- **Complete rewrite**: Ultra-simplified CLI implementation with zero dependencies
+- Guaranteed to work in all environments with no configuration
+- No more template files or path resolution issues
+- Direct component generation with no intermediate steps
+- Fixed all known issues with previous versions
+
+## 1.5.0
+
+- **Complete rewrite**: Entirely new CLI implementation for maximum reliability
+- Guaranteed to work in all environments with no configuration
+- No more template file issues - everything is embedded directly in the code
+- Simplified user experience - just run and get your components
+- Fixed all known issues with previous versions
+
 ## 1.4.3
 
 - **Major improvement**: Embedded template directly in the code - no template files needed!

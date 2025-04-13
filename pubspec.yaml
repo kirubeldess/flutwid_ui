@@ -1,6 +1,6 @@
 name: flutwid_ui
 description: A Flutter component generator tool.
-version: 1.4.3
+version: 2.0.0
 repository: https://github.com/kirubeldess/flutwid_ui
 
 environment:
@@ -11,7 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   args: ^2.7.0
-  mustache_template: ^2.0.0
   path: ^1.8.0
 
 dev_dependencies:

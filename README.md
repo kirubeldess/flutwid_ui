@@ -48,13 +48,10 @@ Flutwid UI comes with a CLI tool that helps you generate new components for your
 flutter pub add flutwid_ui
 
 # Then, add a new button component to your project
-flutter pub run flutwid_ui:flutwid_ui add my_button
-
-# Or with dart
 dart run flutwid_ui:flutwid_ui add my_button
 ```
 
-No global installation or PATH modifications needed!
+No global installation, PATH modifications, or template files needed! The component will be created in `lib/components/ui/` of your project.
 
 ## Available Components
 
