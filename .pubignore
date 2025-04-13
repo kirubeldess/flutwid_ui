@@ -1,0 +1,2 @@
+# Don't include template files in the published package
+lib/templates/

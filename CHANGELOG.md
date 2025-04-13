@@ -1,3 +1,10 @@
+## 1.4.0
+
+- Added CLI tool for generating UI components
+- Added MyButton component
+- Improved documentation
+- Added example application
+
 ## 1.3.0
 
 - Fixed executables configuration
