@@ -44,9 +44,17 @@ class MyHomePage extends StatelessWidget {
 Flutwid UI comes with a CLI tool that helps you generate new components for your project.
 
 ```bash
-# Add a new button component to your project
-dart run flutwid_ui add my_button
+# First, add the package to your project
+flutter pub add flutwid_ui
+
+# Then, add a new button component to your project
+flutter pub run flutwid_ui:flutwid_ui add my_button
+
+# Or with dart
+dart run flutwid_ui:flutwid_ui add my_button
 ```
+
+No global installation or PATH modifications needed!
 
 ## Available Components
 

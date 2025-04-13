@@ -1,3 +1,10 @@
+## 1.4.2
+
+- Added shadcn-like usage pattern - no global installation required!
+- Improved template path resolution to work in various environments
+- Enhanced error messages with helpful instructions
+- Updated documentation with simpler usage examples
+
 ## 1.4.1
 
 - Fixed CLI tool to work correctly when installed globally via `dart pub global activate flutwid_ui`

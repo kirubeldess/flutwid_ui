@@ -32,17 +32,38 @@ void main(List<String> arguments) async {
   final className = componentName.split('_').map((word) => 
       word.isNotEmpty ? word[0].toUpperCase() + word.substring(1) : '').join('');
   
-  // Get the package's installation directory for global usage
-  final packageRoot = path.dirname(path.dirname(Platform.script.toFilePath()));
+  // Try to find the template in multiple possible locations
+  String templatePath;
+  final List<String> possiblePaths = [];
   
-  // Template path within the package
-  final templatePath = path.join(packageRoot, 'lib', 'templates', 'my_button.dart.mustache');
+  // Current script directory (for direct usage)
+  final scriptDir = path.dirname(Platform.script.toFilePath());
+  final packageRoot = path.dirname(scriptDir);
+  
+  // Add possible template locations
+  possiblePaths.add(path.join(packageRoot, 'lib', 'templates', 'my_button.dart.mustache'));
+  possiblePaths.add(path.join(scriptDir, '..', 'lib', 'templates', 'my_button.dart.mustache'));
+  possiblePaths.add(path.join(Directory.current.path, 'lib', 'templates', 'my_button.dart.mustache'));
+  possiblePaths.add(path.join(Directory.current.path, 'packages', 'flutwid_ui', 'lib', 'templates', 'my_button.dart.mustache'));
+  
+  // Find the first path that exists
+  templatePath = possiblePaths.firstWhere(
+    (p) => File(p).existsSync(),
+    orElse: () => path.join(packageRoot, 'lib', 'templates', 'my_button.dart.mustache'),
+  );
   
   // Output path in the user's current directory
   final outputPath = path.join(Directory.current.path, 'lib', 'components', 'ui', '$componentName.dart');
 
   if (!File(templatePath).existsSync()) {
-    print('Template my_button.dart.mustache not found at $templatePath');
+    print('Template my_button.dart.mustache not found!');
+    print('Searched in the following locations:');
+    for (final p in possiblePaths) {
+      print('  - $p');
+    }
+    print('');
+    print('Please make sure the template exists in one of these locations or create it manually.');
+    print('You can also copy the template from: https://github.com/kirubeldess/flutwid_ui/blob/main/lib/templates/my_button.dart.mustache');
     return;
   }
 
