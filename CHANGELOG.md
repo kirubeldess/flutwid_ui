@@ -1,3 +1,10 @@
+## 1.4.3
+
+- **Major improvement**: Embedded template directly in the code - no template files needed!
+- Fixed the issue where templates couldn't be found in user projects
+- Simplified the implementation for more reliable component generation
+- Made the package truly work like shadcn with zero configuration
+
 ## 1.4.2
 
 - Added shadcn-like usage pattern - no global installation required!
