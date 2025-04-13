@@ -1,0 +1,19 @@
+name: flutwid_ui_example
+description: Example app for Flutwid UI.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutwid_ui:
+    path: ../
+
+flutter:
+  uses-material-design: true
