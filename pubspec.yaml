@@ -1,6 +1,6 @@
 name: flutwid_ui
 description: A Flutter UI component library.
-version: 1.0.0
+version: 1.2.0
 # repository: https://github.com/my_org/my_repo
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   args: ^2.7.0
+  mustache_template: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -20,7 +21,9 @@ dev_dependencies:
   test: ^1.24.0
   
 executables:
-  flutwid_ui: flutwid_ui
+  flutwid_ui: bin/flutwid_ui.dart
 
 flutter:
   uses-material-design: true
+
+repository: https://github.com/kirubeldess/flutwid_ui
