@@ -1,3 +1,9 @@
+## 1.4.1
+
+- Fixed CLI tool to work correctly when installed globally via `dart pub global activate flutwid_ui`
+- Improved error handling and user feedback in the CLI tool
+- Ensured template files are included in the published package
+
 ## 1.4.0
 
 - Added CLI tool for generating UI components

@@ -1,2 +1,2 @@
-# Don't include template files in the published package
-lib/templates/
+# Include all files needed for the package to work
+# No exclusions needed for template files as they are required by the CLI
