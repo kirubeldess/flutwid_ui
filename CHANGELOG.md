@@ -1,4 +1,4 @@
-## 2.2.0
+## 2.0.2
 
 - Added beautiful time picker component with customizable colors
 - Enhanced CLI to detect and generate time picker components
