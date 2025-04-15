@@ -1,3 +1,10 @@
+## 2.2.0
+
+- Added beautiful time picker component with customizable colors
+- Enhanced CLI to detect and generate time picker components
+- Added animation effects for improved user experience
+- Improved component customization options with theme support
+
 ## 2.1.1
 
 - Fixed bug in CLI tool where SlideToAct component wasn't being properly generated
