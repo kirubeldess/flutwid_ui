@@ -1,3 +1,10 @@
+## 2.1.0
+
+- Added custom SlideToAct component with zero external dependencies
+- Enhanced CLI to detect component type based on name
+- Added example usage for the SlideToAct component
+- Improved component generation with more customization options
+
 ## 2.0.0
 
 - **Complete rewrite**: Ultra-simplified CLI implementation with zero dependencies
