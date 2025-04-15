@@ -1,3 +1,10 @@
+## 2.2.1
+
+* Updated elevated button to have full width by default with a new fullWidth parameter
+* Updated all component templates to use black and white color scheme
+* Removed star icon from elevated button examples
+* Improved basic button template with more customization options
+
 ## 2.2.0
 
 - Added beautiful customizable elevated button component
@@ -5,6 +12,12 @@
 - Separated component templates into individual files
 - Added support for more component customization options
 - Improved component detection logic
+
+## 2.1.4
+
+* Updated all component templates to use black and white color scheme
+* Removed star icon from elevated button examples
+* Improved basic button template with more customization options
 
 ## 2.1.3
 

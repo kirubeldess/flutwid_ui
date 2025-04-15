@@ -14,9 +14,9 @@ class $className extends StatefulWidget {
   const $className({
     super.key,
     this.text = 'Slide to confirm',
-    this.backgroundColor = Colors.amber,
+    this.backgroundColor = Colors.black,
     this.thumbColor = Colors.white,
-    this.textColor = Colors.black,
+    this.textColor = Colors.white,
     this.icon = Icons.arrow_forward,
     required this.onConfirm,
   });

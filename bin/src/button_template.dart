@@ -4,13 +4,28 @@ String getButtonTemplate(String className) {
 import 'package:flutter/material.dart';
 
 class $className extends StatelessWidget {
-  const $className({super.key});
+  final VoidCallback? onPressed;
+  final String text;
+  
+  const $className({
+    super.key, 
+    this.onPressed,
+    this.text = 'Button',
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
-      child: const Text('Button'),
+      onPressed: onPressed ?? () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      child: Text(text),
     );
   }
 }

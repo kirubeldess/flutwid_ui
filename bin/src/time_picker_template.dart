@@ -12,10 +12,10 @@ class $className extends StatefulWidget {
 
   const $className({
     super.key,
-    this.accentColor = Colors.blue,
+    this.accentColor = Colors.white,
     this.backgroundColor = Colors.black,
     this.textColor = Colors.white,
-    this.selectedBackgroundColor = Colors.grey,
+    this.selectedBackgroundColor = Colors.white24,
     this.onTimeChanged,
   });
 
@@ -147,7 +147,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: widget.accentColor.withAlpha(51),  
+              color: widget.accentColor.withAlpha(51),
               blurRadius: 15,
               spreadRadius: 5,
             ),
@@ -253,7 +253,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
       height: 150,
       decoration: BoxDecoration(
         borderRadius: borderRadius,
-        color: widget.backgroundColor.withAlpha(77),  
+        color: widget.backgroundColor.withAlpha(77),
       ),
       child: Stack(
         children: [
@@ -282,7 +282,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
               height: 45,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: widget.selectedBackgroundColor.withAlpha(77),  
+                color: widget.selectedBackgroundColor,
                 borderRadius: borderRadius,
                 border: Border.all(
                   color: widget.accentColor,
@@ -340,7 +340,6 @@ class ${className}Example extends StatelessWidget {
       backgroundColor: Colors.grey[900],
       body: Center(
         child: $className(
-          accentColor: Colors.deepPurple,
           onTimeChanged: (time) {
             print('Selected time: \${time.hour}:\${time.minute}');
           },
