@@ -33,6 +33,8 @@ class PasswordField extends StatefulWidget {
   final int? maxLength;
   final bool showCounter;
   final bool enabled;
+  final bool fullWidth;
+  final double horizontalPadding;
 
   const PasswordField({
     super.key,
@@ -68,6 +70,8 @@ class PasswordField extends StatefulWidget {
     this.maxLength,
     this.showCounter = false,
     this.enabled = true,
+    this.fullWidth = true,
+    this.horizontalPadding = 16.0,
   });
 
   @override
@@ -107,7 +111,7 @@ class _PasswordFieldState extends State<PasswordField> {
     final defaultIconColor = widget.iconColor ?? Colors.black;
     final defaultFillColor = widget.fillColor ?? Colors.white;
 
-    return TextFormField(
+    final textField = TextFormField(
       controller: _controller,
       focusNode: _focusNode,
       obscureText: _obscureText,
@@ -160,6 +164,14 @@ class _PasswordFieldState extends State<PasswordField> {
       onFieldSubmitted: widget.onSubmitted,
       validator: widget.validator,
     );
+    
+    // If fullWidth is true, wrap the textfield in a Padding widget
+    return widget.fullWidth 
+        ? Padding(
+            padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding),
+            child: textField,
+          )
+        : textField;
   }
 }
 
@@ -203,6 +215,12 @@ class PasswordFieldExample extends StatelessWidget {
               iconColor: Colors.white,
               borderRadius: 12.0,
               borderWidth: 2.0,
+              horizontalPadding: 24.0, // Custom horizontal padding
+            ),
+            const SizedBox(height: 16),
+            PasswordField(
+              hintText: 'Non-Full Width Password',
+              fullWidth: false,
             ),
           ],
         ),

@@ -1,3 +1,11 @@
+## 2.2.21
+
+* Added horizontal padding to all components for consistent spacing
+* Updated time picker component with fullWidth and horizontalPadding parameters
+* Updated password field component with fullWidth and horizontalPadding parameters
+* Improved component detection logic for better component type recognition
+* Standardized black and white color scheme across all components
+
 ## 2.2.2
 
 * Added a customizable password textfield component with toggle visibility

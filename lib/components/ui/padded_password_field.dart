@@ -1,9 +1,6 @@
-/// Provides template for a password textfield component
-String getPasswordTextfieldTemplate(String className) {
-  return '''
 import 'package:flutter/material.dart';
 
-class $className extends StatefulWidget {
+class PaddedPasswordField extends StatefulWidget {
   final TextEditingController? controller;
   final String? hintText;
   final String? labelText;
@@ -39,7 +36,7 @@ class $className extends StatefulWidget {
   final bool fullWidth;
   final double horizontalPadding;
 
-  const $className({
+  const PaddedPasswordField({
     super.key,
     this.controller,
     this.hintText,
@@ -78,10 +75,10 @@ class $className extends StatefulWidget {
   });
 
   @override
-  State<$className> createState() => _${className}State();
+  State<PaddedPasswordField> createState() => _PaddedPasswordFieldState();
 }
 
-class _${className}State extends State<$className> {
+class _PaddedPasswordFieldState extends State<PaddedPasswordField> {
   late bool _obscureText;
   late final FocusNode _focusNode;
   late final TextEditingController _controller;
@@ -179,8 +176,8 @@ class _${className}State extends State<$className> {
 }
 
 // Example usage
-class ${className}Example extends StatelessWidget {
-  const ${className}Example({super.key});
+class PaddedPasswordFieldExample extends StatelessWidget {
+  const PaddedPasswordFieldExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +189,7 @@ class ${className}Example extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            $className(
+            PaddedPasswordField(
               controller: passwordController,
               hintText: 'Enter your password',
               labelText: 'Password',
@@ -208,7 +205,7 @@ class ${className}Example extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
-            $className(
+            PaddedPasswordField(
               hintText: 'Custom Style Password',
               fillColor: Colors.black,
               textColor: Colors.white,
@@ -221,7 +218,7 @@ class ${className}Example extends StatelessWidget {
               horizontalPadding: 24.0, // Custom horizontal padding
             ),
             const SizedBox(height: 16),
-            $className(
+            PaddedPasswordField(
               hintText: 'Non-Full Width Password',
               fullWidth: false,
             ),
@@ -230,6 +227,4 @@ class ${className}Example extends StatelessWidget {
       ),
     );
   }
-}
-''';
 }

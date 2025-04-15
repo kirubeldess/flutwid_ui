@@ -6,15 +6,19 @@ class TimePicker extends StatefulWidget {
   final Color textColor;
   final Color selectedBackgroundColor;
   final ValueChanged<DateTime>? onTimeChanged;
+  final bool fullWidth;
+  final double horizontalPadding;
 
   const TimePicker({
-    Key? key,
-    this.accentColor = Colors.blue,
+    super.key,
+    this.accentColor = Colors.white,
     this.backgroundColor = Colors.black,
     this.textColor = Colors.white,
-    this.selectedBackgroundColor = Colors.grey,
+    this.selectedBackgroundColor = Colors.white24,
     this.onTimeChanged,
-  }) : super(key: key);
+    this.fullWidth = true,
+    this.horizontalPadding = 16.0,
+  });
 
   @override
   _TimePickerState createState() => _TimePickerState();
@@ -135,7 +139,7 @@ class _TimePickerState extends State<TimePicker> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    return ScaleTransition(
+    final timePicker = ScaleTransition(
       scale: _scaleAnimation,
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -144,7 +148,7 @@ class _TimePickerState extends State<TimePicker> with SingleTickerProviderStateM
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: widget.accentColor.withOpacity(0.2),
+              color: widget.accentColor.withAlpha(51),
               blurRadius: 15,
               spreadRadius: 5,
             ),
@@ -213,6 +217,14 @@ class _TimePickerState extends State<TimePicker> with SingleTickerProviderStateM
         ),
       ),
     );
+    
+    // If fullWidth is true, wrap the time picker in a Padding widget
+    return widget.fullWidth 
+        ? Padding(
+            padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding),
+            child: timePicker,
+          )
+        : timePicker;
   }
 
   String _formatTime(DateTime time) {
@@ -250,7 +262,7 @@ class _TimePickerState extends State<TimePicker> with SingleTickerProviderStateM
       height: 150,
       decoration: BoxDecoration(
         borderRadius: borderRadius,
-        color: widget.backgroundColor.withOpacity(0.3),
+        color: widget.backgroundColor.withAlpha(77),
       ),
       child: Stack(
         children: [
@@ -279,7 +291,7 @@ class _TimePickerState extends State<TimePicker> with SingleTickerProviderStateM
               height: 45,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: widget.selectedBackgroundColor.withOpacity(0.3),
+                color: widget.selectedBackgroundColor,
                 borderRadius: borderRadius,
                 border: Border.all(
                   color: widget.accentColor,
@@ -329,18 +341,36 @@ class _TimePickerTile extends StatelessWidget {
 
 // Example usage
 class TimePickerExample extends StatelessWidget {
-  const TimePickerExample({Key? key}) : super(key: key);
+  const TimePickerExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: Center(
-        child: TimePicker(
-          accentColor: Colors.deepPurple,
-          onTimeChanged: (time) {
-            print('Selected time: ${time.hour}:${time.minute}');
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TimePicker(
+              onTimeChanged: (time) {
+                print('Selected time: ${time.hour}:${time.minute}');
+              },
+            ),
+            const SizedBox(height: 24),
+            TimePicker(
+              onTimeChanged: (time) {
+                print('Selected time: ${time.hour}:${time.minute}');
+              },
+              horizontalPadding: 32.0, // Custom horizontal padding
+            ),
+            const SizedBox(height: 24),
+            TimePicker(
+              onTimeChanged: (time) {
+                print('Selected time: ${time.hour}:${time.minute}');
+              },
+              fullWidth: false, // Non-full width time picker
+            ),
+          ],
         ),
       ),
     );

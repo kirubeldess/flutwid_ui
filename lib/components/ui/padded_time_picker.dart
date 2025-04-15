@@ -1,9 +1,6 @@
-/// Provides template for a time picker component
-String getTimePickerTemplate(String className) {
-  return '''
 import 'package:flutter/material.dart';
 
-class $className extends StatefulWidget {
+class PaddedTimePicker extends StatefulWidget {
   final Color accentColor;
   final Color backgroundColor;
   final Color textColor;
@@ -12,7 +9,7 @@ class $className extends StatefulWidget {
   final bool fullWidth;
   final double horizontalPadding;
 
-  const $className({
+  const PaddedTimePicker({
     super.key,
     this.accentColor = Colors.white,
     this.backgroundColor = Colors.black,
@@ -24,10 +21,10 @@ class $className extends StatefulWidget {
   });
 
   @override
-  _${className}State createState() => _${className}State();
+  _PaddedTimePickerState createState() => _PaddedTimePickerState();
 }
 
-class _${className}State extends State<$className> with SingleTickerProviderStateMixin {
+class _PaddedTimePickerState extends State<PaddedTimePicker> with SingleTickerProviderStateMixin {
   late final FixedExtentScrollController _hourController;
   late final FixedExtentScrollController _minuteController;
   late final FixedExtentScrollController _ampmController;
@@ -210,7 +207,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
             ),
             const SizedBox(height: 16),
             Text(
-              'Current: \${_formatTime(_selectedTime)}',
+              'Current: ${_formatTime(_selectedTime)}',
               style: TextStyle(
                 color: widget.accentColor,
                 fontWeight: FontWeight.bold,
@@ -234,7 +231,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
     final hour = time.hour % 12 == 0 ? 12 : time.hour % 12;
     final minute = time.minute.toString().padLeft(2, '0');
     final period = time.hour >= 12 ? 'PM' : 'AM';
-    return '\$hour:\$minute \$period';
+    return '$hour:$minute $period';
   }
 
   Widget _buildSeparator() {
@@ -343,8 +340,8 @@ class _TimePickerTile extends StatelessWidget {
 }
 
 // Example usage
-class ${className}Example extends StatelessWidget {
-  const ${className}Example({super.key});
+class PaddedTimePickerExample extends StatelessWidget {
+  const PaddedTimePickerExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -354,22 +351,22 @@ class ${className}Example extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            $className(
+            PaddedTimePicker(
               onTimeChanged: (time) {
-                print('Selected time: \${time.hour}:\${time.minute}');
+                print('Selected time: ${time.hour}:${time.minute}');
               },
             ),
             const SizedBox(height: 24),
-            $className(
+            PaddedTimePicker(
               onTimeChanged: (time) {
-                print('Selected time: \${time.hour}:\${time.minute}');
+                print('Selected time: ${time.hour}:${time.minute}');
               },
               horizontalPadding: 32.0, // Custom horizontal padding
             ),
             const SizedBox(height: 24),
-            $className(
+            PaddedTimePicker(
               onTimeChanged: (time) {
-                print('Selected time: \${time.hour}:\${time.minute}');
+                print('Selected time: ${time.hour}:${time.minute}');
               },
               fullWidth: false, // Non-full width time picker
             ),
@@ -378,6 +375,4 @@ class ${className}Example extends StatelessWidget {
       ),
     );
   }
-}
-''';
 }
