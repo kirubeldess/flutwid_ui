@@ -1,3 +1,11 @@
+## 2.2.22
+
+* Added beautiful signin form component with email and password fields
+* Added animation effects to the signin form
+* Updated component detector to recognize signin components
+* Maintained black and white color scheme consistency
+* Included horizontal padding for consistent spacing
+
 ## 2.2.21
 
 * Added horizontal padding to all components for consistent spacing
