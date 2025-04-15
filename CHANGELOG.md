@@ -1,3 +1,18 @@
+## 2.2.0
+
+- Added beautiful customizable elevated button component
+- Completely refactored CLI tool for better maintainability
+- Separated component templates into individual files
+- Added support for more component customization options
+- Improved component detection logic
+
+## 2.1.3
+
+* Refactored CLI tool into a modular structure with separate files for better maintainability
+* Updated component templates to use the latest Flutter APIs
+* Fixed issues with deprecated APIs in the custom elevated button component
+* Improved component detection logic
+
 ## 2.1.2
 
 - Added beautiful time picker component with customizable colors
