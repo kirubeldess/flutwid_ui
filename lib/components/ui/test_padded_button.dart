@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatelessWidget {
+class TestPaddedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final Color? backgroundColor;
@@ -19,8 +19,10 @@ class CustomElevatedButton extends StatelessWidget {
   final Size? minimumSize;
   final Size? fixedSize;
   final Size? maximumSize;
+  final bool fullWidth;
+  final double horizontalPadding;
 
-  const CustomElevatedButton({
+  const TestPaddedButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -40,25 +42,27 @@ class CustomElevatedButton extends StatelessWidget {
     this.minimumSize,
     this.fixedSize,
     this.maximumSize,
+    this.fullWidth = true,
+    this.horizontalPadding = 16.0,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     
-    return ElevatedButton(
+    final button = ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
         elevation: elevation != null ? WidgetStatePropertyAll<double>(elevation!) : null,
         shadowColor: backgroundColor != null 
             ? WidgetStatePropertyAll<Color>(backgroundColor!.withAlpha(128)) 
-            : WidgetStatePropertyAll<Color>(theme.colorScheme.primary.withAlpha(128)),
+            : WidgetStatePropertyAll<Color>(Colors.black.withAlpha(128)),
         backgroundColor: backgroundColor != null 
             ? WidgetStatePropertyAll<Color>(backgroundColor!) 
-            : WidgetStatePropertyAll<Color>(theme.colorScheme.primary),
+            : WidgetStatePropertyAll<Color>(Colors.black),
         foregroundColor: textColor != null 
             ? WidgetStatePropertyAll<Color>(textColor!) 
-            : WidgetStatePropertyAll<Color>(theme.colorScheme.onPrimary),
+            : WidgetStatePropertyAll<Color>(Colors.white),
         padding: padding != null 
             ? WidgetStatePropertyAll<EdgeInsetsGeometry>(padding!) 
             : const WidgetStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0)),
@@ -73,7 +77,7 @@ class CustomElevatedButton extends StatelessWidget {
         ),
         overlayColor: overlayColor != null 
             ? WidgetStatePropertyAll<Color>(overlayColor!) 
-            : WidgetStatePropertyAll<Color>(Colors.black12),
+            : WidgetStatePropertyAll<Color>(Colors.white24),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +91,7 @@ class CustomElevatedButton extends StatelessWidget {
             text,
             style: textStyle ??
                 TextStyle(
-                  color: textColor ?? theme.colorScheme.onPrimary,
+                  color: textColor ?? Colors.white,
                   fontSize: fontSize ?? 16.0,
                   fontWeight: textFontWeight ?? FontWeight.w600,
                 ),
@@ -99,42 +103,59 @@ class CustomElevatedButton extends StatelessWidget {
         ],
       ),
     );
+    
+    // If fullWidth is true, wrap the button in a Padding widget
+    return fullWidth 
+        ? Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: SizedBox(
+              width: double.infinity,
+              child: button,
+            ),
+          )
+        : button;
   }
 }
 
 // Example usage
-class CustomElevatedButtonExample extends StatelessWidget {
-  
-  const CustomElevatedButtonExample({super.key});
+class TestPaddedButtonExample extends StatelessWidget {
+  const TestPaddedButtonExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomElevatedButton(
+            TestPaddedButton(
               text: 'Primary Button',
               onPressed: () {},
             ),
             const SizedBox(height: 16),
-            CustomElevatedButton(
+            TestPaddedButton(
               text: 'Custom Button',
               onPressed: () {},
-              backgroundColor: Colors.amber,
+              backgroundColor: Colors.white,
               textColor: Colors.black,
               borderRadius: 12.0,
-              leadingIcon: const Icon(Icons.star, color: Colors.black),
+              horizontalPadding: 24.0, // Custom horizontal padding
             ),
             const SizedBox(height: 16),
-            CustomElevatedButton(
+            TestPaddedButton(
               text: 'Outlined Button',
               onPressed: () {},
               backgroundColor: Colors.transparent,
-              textColor: Colors.blue,
-              borderSide: const BorderSide(color: Colors.blue, width: 2),
+              textColor: Colors.black,
+              borderSide: const BorderSide(color: Colors.black, width: 2),
               elevation: 0,
+            ),
+            const SizedBox(height: 16),
+            TestPaddedButton(
+              text: 'Non-Full Width Button',
+              onPressed: () {},
+              fullWidth: false,
             ),
           ],
         ),

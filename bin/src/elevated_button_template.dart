@@ -23,6 +23,7 @@ class $className extends StatelessWidget {
   final Size? fixedSize;
   final Size? maximumSize;
   final bool fullWidth;
+  final double horizontalPadding;
 
   const $className({
     super.key,
@@ -45,6 +46,7 @@ class $className extends StatelessWidget {
     this.fixedSize,
     this.maximumSize,
     this.fullWidth = true,
+    this.horizontalPadding = 16.0,
   });
 
   @override
@@ -105,11 +107,14 @@ class $className extends StatelessWidget {
       ),
     );
     
-    // If fullWidth is true, wrap the button in a SizedBox.expand
+    // If fullWidth is true, wrap the button in a Padding widget
     return fullWidth 
-        ? SizedBox(
-            width: double.infinity,
-            child: button,
+        ? Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: SizedBox(
+              width: double.infinity,
+              child: button,
+            ),
           )
         : button;
   }
@@ -138,6 +143,7 @@ class ${className}Example extends StatelessWidget {
               backgroundColor: Colors.white,
               textColor: Colors.black,
               borderRadius: 12.0,
+              horizontalPadding: 24.0, // Custom horizontal padding
             ),
             const SizedBox(height: 16),
             $className(

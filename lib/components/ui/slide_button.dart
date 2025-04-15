@@ -9,14 +9,14 @@ class SlideButton extends StatefulWidget {
   final Function onConfirm;
 
   const SlideButton({
-    Key? key,
+    super.key,
     this.text = 'Slide to confirm',
     this.backgroundColor = Colors.amber,
     this.thumbColor = Colors.white,
     this.textColor = Colors.black,
     this.icon = Icons.arrow_forward,
     required this.onConfirm,
-  }) : super(key: key);
+  });
 
   @override
   State<SlideButton> createState() => _SlideButtonState();
@@ -105,21 +105,4 @@ class _SlideButtonState extends State<SlideButton> {
   }
 }
 
-// Example usage
-class SlideButtonExample extends StatelessWidget {
-  const SlideButtonExample({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: SlideButton(
-        onConfirm: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Action confirmed!')),
-          );
-        },
-      ),
-    );
-  }
-}

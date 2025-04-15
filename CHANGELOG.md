@@ -1,3 +1,10 @@
+## 2.2.2
+
+* Added a customizable password textfield component with toggle visibility
+* Password field uses black and white color scheme by default
+* Added support for form validation in the password field
+* Added extensive customization options for the password field
+
 ## 2.2.1
 
 * Updated elevated button to have full width by default with a new fullWidth parameter
