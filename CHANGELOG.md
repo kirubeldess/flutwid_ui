@@ -1,4 +1,10 @@
-## 2.1.0
+## 2.1.1
+
+- Fixed bug in CLI tool where SlideToAct component wasn't being properly generated
+- Improved component detection logic
+- Added test case for slide component generation
+
+## 2.0.1
 
 - Added custom SlideToAct component with zero external dependencies
 - Enhanced CLI to detect component type based on name
