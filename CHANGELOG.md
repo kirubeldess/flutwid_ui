@@ -1,3 +1,8 @@
+## 2.2.25
+
+* Adjusted signin form component height to 345 pixels for better proportions
+* Fine-tuned layout for improved visual appearance
+
 ## 2.2.24
 
 * Fixed signin form component to have a fixed height constraint
