@@ -1,3 +1,10 @@
+## 2.2.24
+
+* Fixed signin form component to have a fixed height constraint
+* Optimized spacing in signin form for better visual appearance
+* Reduced padding and spacing for more compact UI
+* Improved overall form layout and proportions
+
 ## 2.2.23
 
 * Added beautiful toast notification component with animations

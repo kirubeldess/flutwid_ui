@@ -116,6 +116,9 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
       child: SlideTransition(
         position: _slideAnimation,
         child: Container(
+          constraints: const BoxConstraints(
+            maxHeight: 320, // Fixed height constraint
+          ),
           decoration: BoxDecoration(
             color: widget.backgroundColor,
             borderRadius: BorderRadius.circular(widget.borderRadius * 2),
