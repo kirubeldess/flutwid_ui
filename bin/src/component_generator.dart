@@ -6,6 +6,7 @@ import 'slide_button_template.dart';
 import 'time_picker_template.dart';
 import 'password_textfield_template.dart';
 import 'signin_form_template.dart';
+import 'toast_template.dart';
 
 /// Handles component generation
 class ComponentGenerator {
@@ -24,6 +25,8 @@ class ComponentGenerator {
         return getPasswordTextfieldTemplate(className);
       case 'signin':
         return getSigninTemplate(className);
+      case 'toast':
+        return getToastTemplate(className);
       default:
         return getButtonTemplate(className);
     }

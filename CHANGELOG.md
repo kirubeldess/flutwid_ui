@@ -1,3 +1,12 @@
+## 2.2.23
+
+* Added beautiful toast notification component with animations
+* Support for different positions (top, center, bottom)
+* Customizable icons, colors, and duration
+* Loading progress indicator option
+* Auto-dismiss functionality with smooth animations
+* Maintained black and white color scheme consistency
+
 ## 2.2.22
 
 * Added beautiful signin form component with email and password fields
