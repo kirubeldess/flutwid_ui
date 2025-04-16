@@ -127,7 +127,7 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
               ),
             ],
           ),
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -141,7 +141,7 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 Text(
                   'Sign in to continue',
                   style: TextStyle(
@@ -149,7 +149,7 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
                     fontSize: 14,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 16),
                 _buildTextField(
                   controller: _emailController,
                   hintText: widget.emailHintText,
@@ -176,7 +176,7 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -198,9 +198,9 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
                 SizedBox(
-                  height: 50,
+                  height: 45,
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -219,7 +219,7 @@ class _SigninFormState extends State<SigninForm> with SingleTickerProviderStateM
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(widget.borderRadius),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 14.0),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
                       elevation: 4,
                       shadowColor: widget.buttonColor.withOpacity(0.4),
                     ),

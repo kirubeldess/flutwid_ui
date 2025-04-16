@@ -130,7 +130,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
               ),
             ],
           ),
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -152,7 +152,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
                     fontSize: 14,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 16),
                 _buildTextField(
                   controller: _emailController,
                   hintText: widget.emailHintText,
@@ -179,7 +179,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -222,7 +222,7 @@ class _${className}State extends State<$className> with SingleTickerProviderStat
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(widget.borderRadius),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 14.0),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
                       elevation: 4,
                       shadowColor: widget.buttonColor.withOpacity(0.4),
                     ),
